@@ -1,4 +1,5 @@
 import { fetchAndWriteChallenge, readPuzzle } from "./libs/puzzle/index.ts";
+//import { computeSum } from "./libs/math/index.ts";
 
 /**
  * Fonction principale
@@ -8,7 +9,8 @@ import { fetchAndWriteChallenge, readPuzzle } from "./libs/puzzle/index.ts";
 async function main() {
   await fetchAndWriteChallenge();
   const data = readPuzzle();
-  solver(data);
+  //solver(data);
+  console.log("answer:", solver(data));
 }
 
 /**
@@ -20,6 +22,8 @@ export function solver(data: string[]) {
     console.log(line);
   }
   return 1;
+  // const frequencyChanges = data.map(line => Number(line.trim()));
+  // return computeSum(frequencyChanges);
 }
 
 main();

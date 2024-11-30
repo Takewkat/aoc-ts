@@ -22,7 +22,7 @@ export function computeSum(numbers: number[]) {
  * @returns The median of the numbers
  */
 export function computeMedian(numbers: number[]) {
-  const sortedNumbers = numbers.toSorted((a, b) => a - b);
+  const sortedNumbers = numbers.slice().sort((a, b) => a - b);
   const length = sortedNumbers.length;
   const middleLength = length / 2;
   if (length % 2 === 1) {
