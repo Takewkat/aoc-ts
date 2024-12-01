@@ -10,9 +10,16 @@ import {
   writePuzzle,
 } from "./write.ts";
 
-export function readPuzzle(path = puzzleFile) {
-  const file = readFileSync(path, "utf-8");
-  return file.split("\n").slice(0, -1);
+export function readPuzzle(path = puzzleFile): string[] {
+  try {
+    const file = readFileSync(path, "utf-8");
+    const lines = file.split("\n").map(line => line.trim()).filter(line => line.length > 0);
+    console.log(`Successfully read ${lines.length} lines from puzzle file at ${path}`);
+    return lines;
+  } catch (error) {
+    console.error(`Error reading puzzle file at ${path}:`, error);
+    throw error;
+  }
 }
 
 export async function fetchAndWriteChallenge() {

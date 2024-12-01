@@ -6,3 +6,4 @@ inputs
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+.idea/*
